@@ -1,0 +1,28 @@
+.container{
+  justify-content: center;
+}
+
+#tweet-text{
+  background-color: transparent;
+  width: 100%;
+  height: auto;
+  border-style: none;
+  outline: none;
+  font-weight: bold;
+  border-bottom: 5px solid black;
+}
+button{
+  font-family: 'Bungee', 'sans-serif';
+  background-color: #4056A1;
+  color: #FFFFFF;
+}
+.tweet-group {
+  display: flex;
+  padding-top: 20px;
+  justify-content: space-between;
+}
+
+.counter{
+  display: flex;
+  font-family: 'Bungee', 'sans-serif';
+}

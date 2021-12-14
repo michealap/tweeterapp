@@ -13,16 +13,24 @@ html {
 /*
  * Global layout stuff
  */
-nav {
-  font-family: 'Bungee', 'Sans-serif';
-}
+
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
+  width: 100%;
   font-family: 'Source Sans Pro', 'Sans-serif';
 }
 
+.container {
+  display: flex;
+  position: relative;
+  max-width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 5%;
+  margin-right: 5%;
+}
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
