@@ -1,7 +1,7 @@
 header {
   height: 400px;
   width: 100%;
-  background-color: #eb9707;
+  background-color: #d18605;
   background-image: url(../images/brushed-alum.png);
 }
 
@@ -10,4 +10,5 @@ header {
   justify-content: center;
   align-items: center;
   padding-top: 15px;
+  color: white;
 }

@@ -26,3 +26,7 @@ button{
   display: flex;
   font-family: 'Bungee', 'sans-serif';
 }
+
+.red{
+  color: red;
+}
