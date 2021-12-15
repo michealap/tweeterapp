@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  console.log("DOM is ready!");
   const $newTweetCount = $('#tweet-text');
   $newTweetCount.on('input', function() {
     let currentCount = 140;
