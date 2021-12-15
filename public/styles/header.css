@@ -4,6 +4,7 @@
   padding-top: 8%;
   background-color: #d18605;
   background-image: url(../images/brushed-alum.png);
+  z-index: auto;
 }
 
 .profile {
