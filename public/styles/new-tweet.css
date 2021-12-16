@@ -14,6 +14,7 @@ label{
   outline: none;
   font-weight: bold;
   border-bottom: 5px solid black;
+  resize: none;
 }
 button{
   font-family: 'Bungee', 'sans-serif';
@@ -33,4 +34,16 @@ button{
 
 .red{
   color: red;
+}
+
+#error {
+  display: none;
+  margin-top: 5%;
+  font-size: large;
+  color: rgb(167, 40, 40);
+  opacity: 0.8;
+  border-style: double;
+  border-radius: 3px;
+  outline:rgb(167, 40, 40);
+  text-align: center;
 }

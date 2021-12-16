@@ -14,6 +14,7 @@ $(document).ready(function() {
     }
   };
 
+  //prevent cross site scripting attacks
   const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
@@ -70,28 +71,37 @@ $(document).ready(function() {
     const url = "http://localhost:8080/tweets/";
     const type = "POST";
     const data = $(this).serialize();
+    const tweetVal = $('#tweet-text').val();
     const wordLength = $('#tweet-text').val().length;
     const maxLength = 140;
+
+    //validation check for starting tweet with a space
+    if (/\s/.test(tweetVal)) {
+      $("#error").text("Do not start tweet with a space");
+      $("#error").slideDown("fast", "linear");
+      setTimeout(function() {
+        $("#error").slideUp("fast", "linear");
+      }, 4000);
+    }
     //validation check for tweet being empty
     if (wordLength === 0) {
-      $("#tweet-label").text("Blank tweet");
-      $(".tweet-form").addClass("error-message");
+      $('#error').text("Tweet should not be blank");
+      $("#error").slideDown("fast", "linear");
       setTimeout(function() {
-        $("#tweet-label").text("What are you humming about?");
-        $(".tweet-form").removeClass("error-message");
-      }, 2000);
+        $("#error").slideUp("fast", "linear");
+      }, 4000);
     }
     //validation check for exceeding character limit
     if (wordLength > maxLength) {
-      $("#tweet-label").text("You have exceeded the character limit");
-      $(".tweet-form").addClass("error-message");
+      $("#error").text("You have exceeded the character limit");
+      $("#error").slideDown("fast", "linear");
       setTimeout(function() {
-        $("#tweet-label").text("What are you humming about?");
-        $(".tweet-form").removeClass("error-message");
-      }, 2000);
+        $("#error").slideUp("fast", "linear");
+      }, 4000);
     }
     //form submits when the tweet is present then resets textarea value and counter
-    if (wordLength < maxLength) {
+    //validation check for only spaces in tweet
+    if (wordLength < maxLength && !(/\s/.test(tweetVal))) {
       $.ajax({
         type: type,
         url: url,
@@ -106,8 +116,3 @@ $(document).ready(function() {
     }
   });
 });
-
-
-
-
-

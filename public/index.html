@@ -53,9 +53,11 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        
+        <div id="error" class="fas fa-exclamation-triangle"></div>
         <h2>Compose Tweet</h2>
         <form class="tweet-form" action="/tweets/" method="POST">
-          <label for="tweet">What are you humming about?</label>
+          <label for="tweet" id="tweet-label">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="tweet-group">
             <button type="submit" class='update-button'>Tweet</button>
