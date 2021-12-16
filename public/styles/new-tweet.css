@@ -39,6 +39,7 @@ button{
 #error {
   display: none;
   margin-top: 5%;
+  padding: 10px;
   font-size: large;
   color: rgb(167, 40, 40);
   opacity: 0.8;
