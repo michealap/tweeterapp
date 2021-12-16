@@ -4,30 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
-    },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd" },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ]
   const renderTweets = function(tweets) {
     // loops through tweets
   // calls createTweetElement for each tweet
@@ -66,22 +42,36 @@ $(document).ready(function() {
     return $tweet;
   };
 
-  renderTweets(data);
+  const loadTweets = function() {
+    const url = "http://localhost:8080/tweets";
+    const type = "GET";
+    $.ajax({
+      url: url,
+      type: type,
+      complete: function(data){
+        renderTweets(data.responseJSON);
+      }
+    });
+  };
+
+  loadTweets();
 
   const $formSubmission = $('.tweet-form');
   $formSubmission.submit(function(event) {
+    
     event.preventDefault();
+    const url = "http://localhost:8080/tweets/";
+    const type = "POST";
+    const data = $(this).serialize();
     $.ajax({
-      type:"POST",
-      url: "http://localhost:8080/tweets/",
-      data: $(this).serialize(),
+      type: type,
+      url: url,
+      data: data,
       success: function(data) {
         console.log('success');
-        //promise of ajax, there is no response to place data forward
       }
     })
   });
-  
 });
 
 
