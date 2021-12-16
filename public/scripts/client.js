@@ -10,7 +10,7 @@ $(document).ready(function() {
   // takes return value and appends it to the tweets container
     for (let tweet of tweets) {
       const $newTweet = createTweetElement(tweet);
-      $('#tweets-container').append($newTweet);
+      $('#tweets-container').prepend($newTweet);
     }
   };
 
@@ -48,7 +48,7 @@ $(document).ready(function() {
     $.ajax({
       url: url,
       type: type,
-      complete: function(data){
+      complete: function(data) {
         renderTweets(data.responseJSON);
       }
     });
@@ -58,19 +58,33 @@ $(document).ready(function() {
 
   const $formSubmission = $('.tweet-form');
   $formSubmission.submit(function(event) {
-    
     event.preventDefault();
+
     const url = "http://localhost:8080/tweets/";
     const type = "POST";
     const data = $(this).serialize();
-    $.ajax({
-      type: type,
-      url: url,
-      data: data,
-      success: function(data) {
-        console.log('success');
-      }
-    })
+    const wordLength = $('#tweet-text').val().length;
+    const maxLength = 140;
+    //validation check for tweet being empty
+    if (wordLength === 0) {
+      return alert('Blank tweet');
+    }
+    //validation check for exceeding character limit
+    if (wordLength > maxLength) {
+      return alert("You have exceeded the character limit");
+    }
+    //form submit when the tweet is present
+    if (wordLength < maxLength) {
+      $.ajax({
+        type: type,
+        url: url,
+        data: data,
+        success: function(data) {
+          console.log('success');
+        }
+      })
+        .then(loadTweets);
+    }
   });
 });
 
