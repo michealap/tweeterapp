@@ -67,4 +67,24 @@ $(document).ready(function() {
   };
 
   renderTweets(data);
+
+  const $formSubmission = $('.tweet-form');
+  $formSubmission.submit(function(event) {
+    event.preventDefault();
+    $.ajax({
+      type:"POST",
+      url: "http://localhost:8080/tweets/",
+      data: $(this).serialize(),
+      success: function(data) {
+        console.log('success');
+        //promise of ajax, there is no response to place data forward
+      }
+    })
+  });
+  
 });
+
+
+
+
+
