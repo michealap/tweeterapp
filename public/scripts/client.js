@@ -14,6 +14,12 @@ $(document).ready(function() {
     }
   };
 
+  const escape = function(str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const createTweetElement = function(tweet) {
     const time = timeago.format(tweet.created_at);
     let $tweet = $(`<article class="tweet-body">
@@ -26,7 +32,7 @@ $(document).ready(function() {
   </div> 
   </header>      
   <div class="tweet-text">
-  ${tweet.content.text}
+  ${escape(tweet.content.text)}
   </div>     
   <footer class="tweet">
   <div>
@@ -41,6 +47,7 @@ $(document).ready(function() {
   </article>`);
     return $tweet;
   };
+  
 
   const loadTweets = function() {
     const url = "http://localhost:8080/tweets";
@@ -67,11 +74,21 @@ $(document).ready(function() {
     const maxLength = 140;
     //validation check for tweet being empty
     if (wordLength === 0) {
-      return alert('Blank tweet');
+      $("#tweet-label").text("Blank tweet");
+      $(".tweet-form").addClass("error-message");
+      setTimeout(function() {
+        $("#tweet-label").text("What are you humming about?");
+        $(".tweet-form").removeClass("error-message");
+      }, 2000);
     }
     //validation check for exceeding character limit
     if (wordLength > maxLength) {
-      return alert("You have exceeded the character limit");
+      $("#tweet-label").text("You have exceeded the character limit");
+      $(".tweet-form").addClass("error-message");
+      setTimeout(function() {
+        $("#tweet-label").text("What are you humming about?");
+        $(".tweet-form").removeClass("error-message");
+      }, 2000);
     }
     //form submits when the tweet is present then resets textarea value and counter
     if (wordLength < maxLength) {
