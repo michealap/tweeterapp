@@ -73,7 +73,7 @@ $(document).ready(function() {
     if (wordLength > maxLength) {
       return alert("You have exceeded the character limit");
     }
-    //form submit when the tweet is present
+    //form submits when the tweet is present then resets textarea value and counter
     if (wordLength < maxLength) {
       $.ajax({
         type: type,
@@ -84,6 +84,8 @@ $(document).ready(function() {
         }
       })
         .then(loadTweets);
+      $('#tweet-text').val('');
+      $(".counter")[0].innerHTML = 140;
     }
   });
 });
