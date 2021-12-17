@@ -62,6 +62,16 @@ $(document).ready(function() {
   };
 
   loadTweets();
+  //stretch - Form toggle
+  const $composeTweet = $(".new-tweet");
+  const $composeButton = $("#compose");
+  const $textArea = $("#tweet-text");
+
+  $composeButton.click(function(event) {
+    event.preventDefault();
+    $composeTweet.toggle("slow");
+    $textArea.focus();
+  });
 
   const $formSubmission = $('.tweet-form');
   $formSubmission.submit(function(event) {
@@ -99,7 +109,7 @@ $(document).ready(function() {
     }
     //form submits when the tweet is present then resets textarea value and counter
     //validation check for only spaces in tweet
-    if (wordLength < maxLength && (tweetVal.replace(/\s/g, "").length)) {
+    if (wordLength <= maxLength && (tweetVal.replace(/\s/g, "").length)) {
       $.ajax({
         type: type,
         url: url,
