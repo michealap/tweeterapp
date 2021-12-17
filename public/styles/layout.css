@@ -32,16 +32,16 @@ body {
   body {
     font-size: 150%;
   }
-  .navbar {
+  nav {
     position: fixed;
   }
-  .profile{
+  .top > div {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 3em;
   }
-  #compose {
+  .write > button {
     background: transparent;
   }
 
@@ -52,14 +52,14 @@ body {
   body {
     font-size: 150%;
   }
-  .navbar {
+  nav {
     background: transparent;
     position: absolute;
   }
-  #compose {
+  .write > button {
     background: transparent;
   }
-  .profile{
+  .top > div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -75,7 +75,7 @@ body {
     justify-content: center;
     margin: 5%;
   }
-  .profile{
+  .top > div {
     display: flex;
     align-items: center;
     justify-content: center;

@@ -2,11 +2,11 @@
   justify-content: center;
 }
 
-label{
+form > label{
   font-weight: bold;
 }
 
-#tweet-text {
+form > textarea {
   background-color: transparent;
   width: 100%;
   height: auto;
@@ -16,23 +16,23 @@ label{
   border-bottom: 5px solid black;
   resize: none;
 }
-button{
+button {
   font-family: 'Bungee', 'sans-serif';
   background-color: #4056A1;
   color: #FFFFFF;
 }
-.tweet-group {
+form > div {
   display: flex;
   padding-top: 20px;
   justify-content: space-between;
 }
 
-.counter{
+.counter {
   display: flex;
   font-family: 'Bungee', 'sans-serif';
 }
 
-.red{
+.red {
   color: red;
 }
 
