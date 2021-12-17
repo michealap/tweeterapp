@@ -1,3 +1,8 @@
+@keyframes moving {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -12,13 +17,13 @@ nav {
   width: 100%;
   z-index: 1000;
 }
-.logo {
+nav > span {
   display: flex;
   padding-top: 1em;
   font-family: 'Bungee', 'Sans-serif';
   font-size: xx-large;
 }
-.write {
+nav > div {
   display: flex;
   gap: 0.25em; 
   flex-direction: column;
@@ -27,6 +32,7 @@ nav {
 .fas {
   color: red;     
 }
-#compose {
+.write > button {
   border: none;
+  animation: moving 1s infinite alternate;
 }
