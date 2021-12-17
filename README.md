@@ -2,7 +2,7 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
+A client-side Single Page App (SPA) that communicates with a server via AJAX. Technologies used are HTML, CSS, JS, jQuery and AJAX, Node, Express.
 
 ## Getting Started
 
@@ -16,3 +16,22 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- body-parser
+- chance
+- md5
+
+## Final Project
+
+### Desktop View
+!["Screenshot of Desktop View"](https://github.com/michealap/tweeterapp/blob/master/demo/desktop.PNG)
+### Tablet View
+!["Screenshot of Tablet View"](https://github.com/michealap/tweeterapp/blob/master/demo/tablet.PNG)
+
+## Validation Checks
+### Tweet is blank
+!["Screenshot of Blank Tweet"](https://github.com/michealap/tweeterapp/blob/master/demo/blank-tweet.PNG)
+### Tweet contains only spaces
+!["Screenshot of Only Space"](https://github.com/michealap/tweeterapp/blob/master/demo/onlyspaces-check.PNG)
+### Tweet exceeds character limit
+!["Screenshot of Tweet exceeds character"](https://github.com/michealap/tweeterapp/blob/master/demo/exceed-char.PNG)
+
