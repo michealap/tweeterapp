@@ -99,7 +99,7 @@ $(document).ready(function() {
     }
     //form submits when the tweet is present then resets textarea value and counter
     //validation check for only spaces in tweet
-    if (wordLength < maxLength && (tweetVal.replace(/\s/g, "").length)) {
+    if (wordLength <= maxLength && (tweetVal.replace(/\s/g, "").length)) {
       $.ajax({
         type: type,
         url: url,
@@ -110,7 +110,7 @@ $(document).ready(function() {
       })
         .then(loadTweets);
       $('#tweet-text').val('');
-      $(".counter")[0].innerHTML = 140;
+      $(".counter").val(140);
     }
   });
 });
