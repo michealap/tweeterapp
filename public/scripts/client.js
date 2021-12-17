@@ -62,6 +62,16 @@ $(document).ready(function() {
   };
 
   loadTweets();
+  //stretch - Form toggle
+  const $composeTweet = $(".new-tweet");
+  const $composeButton = $("#compose");
+  const $textArea = $("#tweet-text");
+
+  $composeButton.click(function(event) {
+    event.preventDefault();
+    $composeTweet.toggle("slow");
+    $textArea.focus();
+  });
 
   const $formSubmission = $('.tweet-form');
   $formSubmission.submit(function(event) {
