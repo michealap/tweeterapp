@@ -1,7 +1,7 @@
 /*
  * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
  * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
+
  */
 html {
   box-sizing: border-box;
@@ -10,27 +10,85 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   width: 100%;
-  font-family: 'Source Sans Pro', 'Sans-serif';
-}
+  font-family: 'Source Sans Pro', 'Sans-serif'
 
+}
 .container {
   display: flex;
   position: relative;
   max-width: 90%;
   flex-direction: column;
   justify-content: center;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 2% 5%;
 }
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+
+/*modification for mobile*/
+@media only screen and (min-width: 430px) and (max-width: 700px) {
+  body {
+    font-size: 150%;
+  }
+  .navbar {
+    position: fixed;
+  }
+  .profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3em;
+  }
+  #compose {
+    background: transparent;
+  }
+
+}
+
+/*modification for tablet*/
+@media only screen and (min-width: 700px) and (max-width: 1023px) {
+  body {
+    font-size: 150%;
+  }
+  .navbar {
+    background: transparent;
+    position: absolute;
+  }
+  #compose {
+    background: transparent;
+  }
+  .profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20em;
+  }
+
+}
+/*modification for desktop*/
+@media only screen and (min-width: 1024px) {
+  .top {
+    display: flex;
+    height: auto;
+    justify-content: center;
+    margin: 5%;
+  }
+  .profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5em;
+  }
+  .header-container {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: row;
+  }
+  .container {
+    flex: 1 1 75%;
+    width: 75%;
+    margin-top: 5%;
+  }
+}
