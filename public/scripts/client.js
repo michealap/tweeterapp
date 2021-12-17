@@ -1,11 +1,10 @@
 /*
- * Client-side JS logic goes here
+ * Client-side JS logic
  * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function() {
   const renderTweets = function(tweets) {
-    // loops through tweets
+  // loops through tweets
   // calls createTweetElement for each tweet
   // takes return value and appends it to the tweets container
     for (let tweet of tweets) {
@@ -24,28 +23,28 @@ $(document).ready(function() {
   const createTweetElement = function(tweet) {
     const time = timeago.format(tweet.created_at);
     let $tweet = $(`<article class="tweet-body">
-  <header class="tweet-profile">
-  <div class= "tweet-name">
-  <img src=${tweet.user.avatars} height="50px" width="50px">
-  <p>${tweet.user.name}</p>
-  </div>
-  <div class="tweet-handle">${tweet.user.handle}
-  </div> 
-  </header>      
-  <div class="tweet-text">
-  ${escape(tweet.content.text)}
-  </div>     
-  <footer class="tweet">
-  <div>
-  ${time}       
-  </div>
-  <div class="tweet-icon">
-  <i class="fas fa-flag"></i>
-  <i class="fas fa-retweet"></i>
-  <i class="fas fa-heart"></i>
-  </div>
-  </footer>
-  </article>`);
+    <header class="tweet-profile">
+    <div class= "tweet-name">
+    <img src=${tweet.user.avatars} height="50px" width="50px">
+    <p>${tweet.user.name}</p>
+    </div>
+    <div class="tweet-handle">${tweet.user.handle}
+    </div> 
+    </header>      
+    <div class="tweet-text">
+    ${escape(tweet.content.text)}
+    </div>     
+    <footer class="tweet">
+    <div>
+    ${time}       
+    </div>
+    <div class="tweet-icon">
+    <i class="fas fa-flag"></i>
+    <i class="fas fa-retweet"></i>
+    <i class="fas fa-heart"></i>
+    </div>
+    </footer>
+    </article>`);
     return $tweet;
   };
   
@@ -72,12 +71,11 @@ $(document).ready(function() {
     const type = "POST";
     const data = $(this).serialize();
     const tweetVal = $('#tweet-text').val();
-    const wordLength = $('#tweet-text').val().length;
+    const wordLength = tweetVal.length;
     const maxLength = 140;
-
     //validation check for starting tweet with a space
-    if (/\s/.test(tweetVal)) {
-      $("#error").text("Do not start tweet with a space");
+    if (!tweetVal.replace(/\s/g, "").length) {
+      $("#error").text("Tweet only contains spaces");
       $("#error").slideDown("fast", "linear");
       setTimeout(function() {
         $("#error").slideUp("fast", "linear");
@@ -89,7 +87,7 @@ $(document).ready(function() {
       $("#error").slideDown("fast", "linear");
       setTimeout(function() {
         $("#error").slideUp("fast", "linear");
-      }, 4000);
+      }, 3000);
     }
     //validation check for exceeding character limit
     if (wordLength > maxLength) {
@@ -97,11 +95,11 @@ $(document).ready(function() {
       $("#error").slideDown("fast", "linear");
       setTimeout(function() {
         $("#error").slideUp("fast", "linear");
-      }, 4000);
+      }, 3000);
     }
     //form submits when the tweet is present then resets textarea value and counter
     //validation check for only spaces in tweet
-    if (wordLength < maxLength && !(/\s/.test(tweetVal))) {
+    if (wordLength < maxLength && (tweetVal.replace(/\s/g, "").length)) {
       $.ajax({
         type: type,
         url: url,
