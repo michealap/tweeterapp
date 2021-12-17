@@ -1,15 +1,16 @@
 .top {
   height: 500px;
   width: 100%;
-  padding-top: 15%;
+  padding-top: 10%;
   background-color: #d18605;
   background-image: url(../images/brushed-alum.png);
 }
-
+  
 .profile {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding-top: 15px;
+  padding-top: 0.5em;
   color: white;
 }
+

@@ -6,7 +6,7 @@ label{
   font-weight: bold;
 }
 
-#tweet-text{
+#tweet-text {
   background-color: transparent;
   width: 100%;
   height: auto;
@@ -38,7 +38,6 @@ button{
 
 #error {
   display: none;
-  margin-top: 5%;
   padding: 10px;
   font-size: large;
   color: rgb(167, 40, 40);

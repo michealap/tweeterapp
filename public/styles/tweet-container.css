@@ -1,13 +1,13 @@
-.tweet-body{
+.tweet-body {
   display: grid;
-  grid-row-gap: 10px;
+  row-gap: 10px;
   border: 2px solid black;
-  margin-top: 20px;
   padding: 1em;
   font-family: "Source Sans Pro";
   font-weight: 300;
   word-wrap: break-word;
-  margin-bottom: 20px;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 article:hover{
@@ -25,25 +25,23 @@ article:hover{
   align-items: center;
 }
 
-.tweet-handle{
+.tweet-handle {
   display: flex;
-  opacity: 0.5;
+  opacity: 0.8;
   justify-content: space-between;
 }
 
 .tweet-text {
-  margin: 0;
   font-weight: bold;
   border-bottom: 2px solid black;
-  align-self: end;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 .tweet {
   display: flex;
   justify-content: space-between;
   align-self: center;
-  font-size: 60%;
+  font-size: 80%;
 }
 
 .tweet-icon i:hover {
@@ -53,6 +51,3 @@ article:hover{
 .tweet-icon i {  
   color: #4056A1;
 }
-
-
-
