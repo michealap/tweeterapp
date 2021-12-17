@@ -120,7 +120,7 @@ $(document).ready(function() {
       })
         .then(loadTweets);
       $('#tweet-text').val('');
-      $(".counter")[0].innerHTML = 140;
+      $(".counter").val(140);
     }
   });
 });
