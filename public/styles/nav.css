@@ -27,3 +27,6 @@ nav {
 .fas {
   color: red;     
 }
+#compose {
+  border: none;
+}
