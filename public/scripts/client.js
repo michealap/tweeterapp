@@ -50,6 +50,8 @@ $(document).ready(function() {
   
 
   const loadTweets = function() {
+    //empty container before refresh - bug fix
+    $('#tweets-container').empty();
     const url = "http://localhost:8080/tweets";
     const type = "GET";
     $.ajax({
@@ -114,7 +116,7 @@ $(document).ready(function() {
         type: type,
         url: url,
         data: data,
-        success: function(data) {
+        success: function() {
           console.log('success');
         }
       })
